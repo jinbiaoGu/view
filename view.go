@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -26,7 +25,6 @@ type Config struct {
 	ViewPaths       []string
 	DefaultLayout   string
 	FuncMapMaker    func(view *View, writer http.ResponseWriter, request *http.Request) template.FuncMap
-	//AssetFileSystem assetfs.Interface
 }
 
 // View the view struct.
@@ -55,8 +53,6 @@ func New(config *Config, viewPaths ...string) *View {
 	for _, viewPath := range config.ViewPaths {
 		view.RegisterViewPath(viewPath)
 	}
-
-	log.Println("文件路径目录",view.Config.ViewPaths)
 	return view
 }
 

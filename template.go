@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
-	"log"
 	"net/http"
 	"path/filepath"
 	"strings"
@@ -99,8 +98,6 @@ func (tmpl *Template) View(templateName string, obj interface{}, writer http.Res
 	if layout == "" && tmpl.usingDefaultLayout {
 		usingDefaultLayout = true
 		layout = tmpl.view.DefaultLayout
-
-		log.Println(layout)
 	}
 
 	if layout != "" {
